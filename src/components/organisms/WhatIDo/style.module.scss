@@ -1,0 +1,164 @@
+@import "../../../style/variables.scss";
+@import "../../../style/mixin.scss";
+
+.WhatIDo {
+  $timing-function-image: cubic-bezier(0.83, 0, 0.17, 1);
+
+  // LookBackのマウス実装に対応して全ページでzindexを付与する必要がある
+  position: relative;
+  z-index: 20;
+  padding: 100px 100px 0;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Marcellus";
+
+  // スマホ以下
+  @include respondToSm {
+    padding: 100px 36px;
+  }
+
+  .WhatIDo__title {
+    position: absolute;
+    z-index: 30;
+    font-size: 20px;
+    color: $font-color-red;
+    letter-spacing: 0.25em;
+  }
+
+  .WhatIDo__titleRow {
+    display: block;
+  }
+
+  .WhatIDo__sliderWrapper {
+    padding: 40px 0 8px;
+    height: 10%;
+  }
+
+  .WhatIDo__sliderContent {
+    position: relative;
+    padding: 0 8px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8px;
+      width: calc(100% - 16px);
+      height: 100%;
+      background-color: #000;
+      opacity: 0.5;
+      transition-duration: 0.2s;
+    }
+
+    &--current {
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    // スマホ以下
+    @include respondToSm {
+      padding: 0 16px;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .WhatIDo__sliderContentImage {
+    aspect-ratio: 2/3;
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+
+    @include respondToSm {
+      height: 408px;
+    }
+  }
+
+  .WhatIDo__sliderContentButton {
+    position: fixed;
+    z-index: 30;
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 1px solid $font-color-white;
+    color: $font-color-white;
+    text-align: center;
+    line-height: 80px;
+    cursor: none;
+  }
+
+  .WhatIDo__currentSlideIndicator {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-align: right;
+    color: $font-color-blue;
+  }
+
+  .WhatIDo__progressBars {
+    position: relative;
+    display: block;
+    width: 100px;
+  }
+
+  .WhatIDo__progressBarBase {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 1px;
+    background-color: #dfdfdf;
+  }
+
+  .WhatIDo__progressBarCurrent {
+    position: relative;
+    display: block;
+    margin-top: -1px;
+    height: 1px;
+    background-color: $font-color-blue;
+  }
+
+  .WhatIDo__numbers {
+    margin-left: 12px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .WhatIDo__slideText {
+    margin-top: 100px;
+    padding: 0 120px;
+    font-family: "Shippori Mincho";
+    color: $font-color-blue;
+
+    // スマホ以下
+    @include respondToSm {
+      margin-top: 48px;
+      padding: 0;
+    }
+  }
+
+  .WhatIDo__slideTitle {
+    font-size: 18px;
+
+    // スマホ以下
+    @include respondToSm {
+      font-size: 16px;
+    }
+  }
+
+  .WhatIDo__slideContent {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+
+    // スマホ以下
+    @include respondToSm {
+      margin-top: 12px;
+      font-size: 12px;
+    }
+  }
+}

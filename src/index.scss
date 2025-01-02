@@ -1,0 +1,19 @@
+@import "./style/_reset";
+
+// 英語フォント
+@font-face {
+  font-family: "Marcellus";
+  src: url(../static/font/Marcellus/Marcellus-Regular.woff2) format("woff");
+}
+
+@font-face {
+  font-family: "Classico URW";
+  src: url(../static/font/ClassicoURW/ClassicoUrw-Regular.woff2) format("woff");
+}
+
+// 日本語フォント
+@font-face {
+  font-family: "Shippori Mincho";
+  src: url(../static/font/ShipporiMincho/ShipporiMincho-Regular.woff2)
+    format("woff");
+}

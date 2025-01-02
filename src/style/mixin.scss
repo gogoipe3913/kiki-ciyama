@@ -1,0 +1,23 @@
+// デバイスブレイクポイントの設定
+$breakpoint-sm: 576px; // スマートフォン以下
+$breakpoint-md: 768px; // タブレット以下
+$breakpoint-lg: 992px; // デスクトップ以下
+
+// レスポンシブスタイルのmixin
+@mixin respondToSm {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin respondToMd {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin respondToLg {
+  @media (max-width: $breakpoint-lg) {
+    @content;
+  }
+}

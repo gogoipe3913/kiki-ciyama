@@ -1,0 +1,186 @@
+@import "../../../style/variables.scss";
+@import "../../../style/mixin.scss";
+
+.Menu {
+  $timing-function-text: cubic-bezier(0.86, 0, 0.79, 0);
+
+  .Menu__hamburgerButton {
+    position: fixed;
+    top: 48px;
+    left: 100px;
+    z-index: 31;
+    width: 40px;
+
+    @media (hover: hover) {
+      &:hover {
+        .Menu__hamburgerButtonLine--top {
+          width: 16px;
+        }
+        .Menu__hamburgerButtonLine--center {
+          width: 20px;
+        }
+        .Menu__hamburgerButtonLine--bottom {
+          width: 28px;
+        }
+      }
+    }
+
+    @include respondToLg {
+      left: 48px;
+    }
+
+    @include respondToSm {
+      left: 36px;
+
+      .Menu__hamburgerButtonLine--top {
+        width: 16px;
+      }
+      .Menu__hamburgerButtonLine--center {
+        width: 20px;
+      }
+      .Menu__hamburgerButtonLine--bottom {
+        width: 28px;
+      }
+    }
+  }
+
+  .Menu__hamburgerButtonLine {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: $font-color-red;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in-out;
+
+    &--top {
+      &--rotated {
+        transform: translateY(10px) rotate(225deg);
+        color: $font-color-white;
+      }
+    }
+
+    &--center {
+      &--disappered {
+        opacity: 0;
+      }
+    }
+
+    &--bottom {
+      &--rotated {
+        transform: translateY(-10px) rotate(-45deg);
+        color: $font-color-white;
+      }
+    }
+  }
+
+  .Menu__hamburgerButtonLine + .Menu__hamburgerButtonLine {
+    margin-top: 9px;
+  }
+
+  .Menu__contents {
+    position: fixed;
+    z-index: 30;
+    width: 0;
+    height: 0;
+    padding-left: 100px;
+    border-radius: 0 0 200px 0;
+    background-color: $font-color-blue;
+    font-family: "Marcellus";
+    letter-spacing: 0.1em;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+
+    &--displayed {
+      width: 60%;
+      height: 70%;
+    }
+
+    @include respondToSm {
+      padding-left: 36px;
+
+      &--displayed {
+        width: 80%;
+        height: 70lvh;
+      }
+    }
+  }
+
+  .Menu__contentsListWrapper {
+    opacity: 0;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  // for CSSTransition
+  .Menu__contentsListWrapper--entered {
+    opacity: 1;
+  }
+
+  .Menu__contentsListWrapper--exited {
+    opacity: 0;
+  }
+
+  .Menu__contentsList {
+    padding-top: 200px;
+    font-size: 18px;
+
+    @include respondToSm {
+      padding-top: 120px;
+      font-size: 15px;
+    }
+  }
+
+  .Menu__contentsItem + .Menu__contentsItem {
+    margin-top: 16px;
+  }
+
+  .Menu__contentsItemLink {
+    color: $font-color-white;
+    transition-duration: 0.3s;
+    transition-timing-function: $timing-function-text;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 0px;
+      height: 1px;
+      background-color: $font-color-red;
+      transition-duration: 0.3s;
+      transition-timing-function: $timing-function-text;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: $font-color-red;
+
+        &::before {
+          width: 32px;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+
+  .Menu__contact {
+    display: block;
+    margin-top: 40px;
+    font-size: 15px;
+    color: $font-color-white;
+    transition-duration: 0.3s;
+    transition-timing-function: $timing-function-text;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $font-color-red;
+      }
+    }
+
+    @include respondToSm {
+      font-size: 11px;
+    }
+  }
+
+  .Menu__contactMail {
+    margin-left: 8px;
+  }
+}

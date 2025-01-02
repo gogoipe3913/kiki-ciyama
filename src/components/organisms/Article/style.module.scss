@@ -1,0 +1,296 @@
+@import "../../../style/variables.scss";
+@import "../../../style/mixin.scss";
+
+.Article {
+  $timing-function-image: cubic-bezier(0.83, 0, 0.17, 1);
+
+  font-family: "Marcellus";
+  color: $font-color-blue;
+
+  .Article__topContainer {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .Article__mainImage {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .Article__linkToIndex {
+    position: fixed;
+    z-index: 2;
+    top: 100px;
+    left: 100px;
+    display: flex;
+    align-items: end;
+    width: 188px;
+    font-size: 14px;
+    color: $font-color-red;
+    line-height: 1;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $font-color-blue;
+
+        .Article__linkArrowAngle,
+        .Article__linkArrow {
+          background-color: $font-color-blue;
+        }
+
+        .Article__linkArrow {
+          width: 48px;
+        }
+      }
+    }
+
+    // スマホ以下
+    @include respondToSm {
+      display: none;
+    }
+  }
+
+  .Article__linkArrowAngle {
+    display: block;
+    width: 8px;
+    height: 1px;
+    background-color: $font-color-red;
+    transform-origin: top left;
+    transform: rotate(-45deg);
+
+    transition-duration: 0.3s;
+    transition-timing-function: $timing-function-image;
+  }
+
+  .Article__linkArrow {
+    display: block;
+    margin-left: -8px;
+    width: 92px;
+    height: 1px;
+    background-color: $font-color-red;
+
+    transition-duration: 0.3s;
+    transition-timing-function: $timing-function-image;
+  }
+
+  .Article__linkText {
+    margin-left: 8px;
+
+    transition-duration: 0.3s;
+    transition-timing-function: $timing-function-image;
+  }
+
+  .Article__titleVertical {
+    position: fixed;
+    top: 200px;
+    left: 100px;
+    line-height: 1;
+    font-weight: 400;
+    color: $font-color-white;
+    transform-origin: bottom left;
+    transform: rotate(90deg);
+
+    // スマホ以下
+    @include respondToSm {
+      top: 60px;
+      left: 36px;
+    }
+  }
+
+  .Article__titleVerticalBody {
+    font-size: 20px;
+
+    @include respondToSm {
+      font-size: 16px;
+    }
+  }
+
+  .Article__titleVerticalMonth {
+    margin-left: 24px;
+    font-size: 14px;
+
+    @include respondToSm {
+      font-size: 11px;
+    }
+  }
+
+  .Article__scrollIndicator {
+    position: absolute;
+    right: -28px;
+    bottom: 64px;
+
+    // デスクトップ以下
+    @include respondToLg {
+      z-index: 20;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+  }
+
+  .Article__contentWrapper {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    padding: 280px 200px 0;
+    width: 100%;
+    background-color: $font-color-white;
+
+    // スマホ以下
+    @include respondToSm {
+      padding: 200px 36px 0;
+    }
+  }
+
+  .Article__content {
+    display: flex;
+
+    // スマホ以下
+    @include respondToSm {
+      flex-direction: column;
+    }
+  }
+
+  .Article__leftColumn {
+    padding-top: 180px;
+    max-width: calc(50vw - 560px);
+    min-width: 360px;
+
+    // スマホ以下
+    @include respondToSm {
+      padding: 0;
+      max-width: 100%;
+      min-width: 0;
+    }
+  }
+
+  .Article__title {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+
+    // スマホ以下
+    @include respondToSm {
+      font-size: 18px;
+    }
+  }
+
+  .Article__date {
+    font-size: 11px;
+    font-family: "Shippori Mincho";
+    text-align: right;
+    letter-spacing: 0.1em;
+
+    &::before {
+      content: "";
+      margin-right: 8px;
+      display: inline-block;
+      width: 80px;
+      height: 1px;
+      background-color: $font-color-blue;
+    }
+
+    // スマホ以下
+    @include respondToSm {
+      font-size: 11px;
+      text-align: left;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .Article__text {
+    margin-top: 60px;
+    font-size: 15px;
+    font-family: "Shippori Mincho";
+    line-height: 2;
+    letter-spacing: 0.1em;
+    white-space: pre-line;
+
+    // スマホ以下
+    @include respondToSm {
+      margin-top: 20px;
+      font-size: 12px;
+    }
+  }
+
+  .Article__tag {
+    margin-top: 100px;
+    color: $font-color-red;
+
+    // スマホ以下
+    @include respondToSm {
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  }
+
+  .Article__tagBody {
+    display: block;
+
+    &::before {
+      content: "";
+      display: block;
+      margin-bottom: 40px;
+      width: 28px;
+      height: 1px;
+      background-color: $font-color-blue;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 40px;
+      width: 28px;
+      height: 1px;
+      background-color: $font-color-blue;
+    }
+
+    // スマホ以下
+    @include respondToSm {
+      &::before {
+        margin-bottom: 16px;
+      }
+      &::after {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .Article__textEnglish {
+    margin-top: 60px;
+    font-size: 13px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    white-space: pre-line;
+
+    // スマホ以下
+    @include respondToSm {
+      margin-top: 40px;
+      font-size: 11px;
+    }
+  }
+
+  .Article__rightColumn {
+    flex-grow: 1;
+    margin-left: 100px;
+
+    // スマホ以下
+    @include respondToSm {
+      margin-top: 120px;
+      margin-left: 0;
+    }
+  }
+
+  .Article__imageFigure + .Article__imageFigure {
+    margin-top: 100px;
+
+    // スマホ以下
+    @include respondToSm {
+      margin-top: 120px;
+    }
+  }
+}
