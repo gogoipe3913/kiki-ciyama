@@ -1,29 +1,11 @@
 import React, { useState } from "react";
 import style from "./style.module.scss";
 import ScrollIndicator from "../../atoms/ScrollIndicator";
-// import Loading from "../../atoms/Loading";
 import classNames from "classnames";
 
 const Top: React.FC = () => {
-  // const [imageLoaded, setImageLoaded] = useState(false);
-
-  // const handleImageLoaded = () => {
-  //   console.log("あああ");
-  //   // Loadingアニメーションが消えるのを待つ
-  //   setTimeout(() => {
-  //     setImageLoaded(true);
-  //   }, 300);
-  // };
-
   return (
-    <div
-      id="Top"
-      className={classNames(
-        style.Top
-        // !imageLoaded ? style["Top--beforeLoaded"] : ""
-      )}
-    >
-      {/* <Loading isLoadedFirstImage={imageLoaded} /> */}
+    <div id="Top" className={style.Top}>
       <div className={style.Top__videoWrapper}>
         <p className={style.Top__titleBox}>
           <span className={style.Top__title}>TAIKI KISHIYAMA PORTFOLIO</span>
@@ -36,6 +18,7 @@ const Top: React.FC = () => {
             loop={true}
             src="/video/topVisualVideo.mp4"
             className={style.Top__video}
+            onError={(e) => console.error("Video load error", e)}
           />
           <div className={style.Top__titleBoxOnImage}>
             <span className={style.Top__titleOnImage}>

@@ -1,28 +1,6 @@
 @import "../../../style/variables.scss";
 @import "../../../style/mixin.scss";
 
-.Loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100svh;
-  background-color: $font-color-white;
-  z-index: 999999999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  & .Loading__title {
-    transform: scaleX(-1);
-    font-size: 5.8vw;
-    color: $font-color-blue;
-    letter-spacing: 0.08em;
-    text-align: center;
-    font-family: "Classico URW";
-  }
-}
-
 .Top {
   position: relative;
   z-index: 20;
@@ -31,10 +9,6 @@
   height: 100svh;
   font-family: "Marcellus";
   background-color: $global-color-green;
-
-  &--beforeLoaded {
-    z-index: 999;
-  }
 
   // スマホ以下
   @include respondToSm {
@@ -67,13 +41,8 @@
     display: flex;
     justify-content: center;
     height: 100%;
-    opacity: 0;
     transition-duration: 0.8s;
     transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
-
-    &--displayed {
-      opacity: 1;
-    }
   }
 
   .Top__videoFrame {
