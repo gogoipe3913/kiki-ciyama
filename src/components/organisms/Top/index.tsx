@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./style.module.scss";
 import ScrollIndicator from "../../atoms/ScrollIndicator";
-import classNames from "classnames";
 
 const Top: React.FC = () => {
   return (
