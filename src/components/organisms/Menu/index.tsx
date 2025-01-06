@@ -122,7 +122,7 @@ const Menu: React.FC<MenuProps> = ({ className = "" }) => {
                       setIsOpened(false);
                     }}
                   >
-                    Works
+                    Photograph
                   </a>
                 </li>
               </ul>
