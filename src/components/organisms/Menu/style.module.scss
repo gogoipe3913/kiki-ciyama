@@ -55,7 +55,7 @@
     &--top {
       &--rotated {
         transform: translateY(10px) rotate(225deg);
-        color: $font-color-white;
+        background-color: $font-color-white;
       }
     }
 
@@ -68,7 +68,7 @@
     &--bottom {
       &--rotated {
         transform: translateY(-10px) rotate(-45deg);
-        color: $font-color-white;
+        background-color: $font-color-white;
       }
     }
   }

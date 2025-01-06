@@ -114,9 +114,20 @@ const Menu: React.FC<MenuProps> = ({ className = "" }) => {
                     Works
                   </a>
                 </li>
+                <li className={style.Menu__contentsItem}>
+                  <a
+                    href="https://photograph.kiki-ciyama.com"
+                    className={style.Menu__contentsItemLink}
+                    onClick={() => {
+                      setIsOpened(false);
+                    }}
+                  >
+                    Works
+                  </a>
+                </li>
               </ul>
               <a
-                href="mailto:taiki.kishiyama0913@gmail.com"
+                href="mailto:taiki.kishiyama@gmail.com"
                 className={style.Menu__contact}
               >
                 <span className={style.Menu__contactTitle}>Contact :</span>

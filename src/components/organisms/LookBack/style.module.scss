@@ -143,12 +143,12 @@ $timing-function-image: cubic-bezier(0.83, 0, 0.17, 1);
   }
 
   .LookBack__itemTitle--active {
-    color: $font-color-white;
+    color: $font-color-gray;
 
     &::before {
       width: 32px;
       margin-right: 8px;
-      background-color: $font-color-white;
+      background-color: $font-color-gray;
     }
   }
 
@@ -178,7 +178,7 @@ $timing-function-image: cubic-bezier(0.83, 0, 0.17, 1);
 
     @include respondToSm {
       width: 180px;
-      height: 528px;
+      height: 560px;
     }
   }
 
