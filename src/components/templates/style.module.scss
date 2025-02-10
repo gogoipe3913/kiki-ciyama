@@ -2,5 +2,19 @@
 @import "../../style/mixin.scss";
 
 .Templates {
-  background-color: #06494e;
+  color: #464646;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Marcellus", "Shippori Mincho";
+
+  p:first-of-type {
+    font-size: 16px;
+  }
+
+  p:last-of-type {
+    font-size: 10px;
+  }
 }

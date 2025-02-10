@@ -90,8 +90,7 @@ const LookBackItem: React.FC<LookBackItemProps> = ({
           {/* <Link to={`/${slug}`} className={style.LookBack__link}> */}
           <a className={style.LookBack__link}>
             <img
-              width={200}
-              height={660}
+              width={500}
               src={url}
               alt={alt}
               onMouseMove={(event) => {

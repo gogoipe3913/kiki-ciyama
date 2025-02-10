@@ -1,22 +1,15 @@
 import React from "react";
 import style from "./style.module.scss";
-import Menu from "../organisms/Menu";
-import Top from "../organisms/Top";
-import About from "../organisms/About";
-import LookBack from "../organisms/LookBack";
-import IntervalText from "../organisms/IntervalText";
-import Footer from "../organisms/Footer";
+import { FadeInContainer } from "../atoms/FadeInContainer";
 
 const Templates: React.FC = () => {
   return (
-    <div className={style.Templates}>
-      <Menu />
-      <Top />
-      <About />
-      <LookBack />
-      <IntervalText />
-      <Footer />
-    </div>
+    <FadeInContainer>
+      <div className={style.Templates}>
+        <p>このサイトは準備中です</p>
+        <p>"This site is under construction."</p>
+      </div>
+    </FadeInContainer>
   );
 };
 
