@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createClient } from "microcms-js-sdk";
 import classNames from "classnames";
 import style from "./style.module.scss";
-import WorksDrawer from "../WorksDrawer";
 import { FadeInContainer } from "../../atoms/FadeInContainer";
-import Overlay from "../../atoms/Overlay";
 
 type WorksItemImagesInterface = {
   url: string;
@@ -21,8 +19,8 @@ export type WorksItemDataInterface = {
 };
 
 type WorkItemsProps = WorksItemDataInterface & {
-  setIsDisplayed(): void;
-  setDisplayedItem(): void;
+  setIsDisplayed?(): void;
+  setDisplayedItem?(): void;
 };
 
 const WorkItem: React.FC<WorkItemsProps> = ({
@@ -30,8 +28,6 @@ const WorkItem: React.FC<WorkItemsProps> = ({
   workCategory,
   category,
   images,
-  setIsDisplayed,
-  setDisplayedItem,
 }) => {
   // 改行を含めたい処理
   // const categoryName =
@@ -73,16 +69,6 @@ const WorkItem: React.FC<WorkItemsProps> = ({
 };
 
 const Works: React.FC = () => {
-  const [isDisplayed, setIsDisplayed] = useState(false);
-  const [displayedItem, setDisplayedItem] = useState<WorksItemDataInterface>({
-    title: "-",
-    workCategory: "",
-    createDate: "-",
-    category: ["-"],
-    images: [],
-    text: "-",
-    textEnglish: "-",
-  } as WorksItemDataInterface);
   const [worksData, setWorksData] = useState<WorksItemDataInterface[]>([]);
 
   const serviceDomain = import.meta.env.VITE_SERVICE_DOMAIN;
@@ -116,47 +102,14 @@ const Works: React.FC = () => {
             return index % 3 == 0 ? (
               <React.Fragment key={index}>
                 <div id={`forResizingByLenis${index / 3}`} />
-                <WorkItem
-                  key={index}
-                  {...item}
-                  setIsDisplayed={() => {
-                    setIsDisplayed(true);
-                  }}
-                  setDisplayedItem={() => {
-                    setDisplayedItem(item);
-                  }}
-                />
+                <WorkItem key={index} {...item} />
               </React.Fragment>
             ) : (
-              <WorkItem
-                key={index}
-                {...item}
-                setIsDisplayed={() => {
-                  setIsDisplayed(true);
-                }}
-                setDisplayedItem={() => {
-                  setDisplayedItem(item);
-                }}
-              />
+              <WorkItem key={index} {...item} />
             );
           })}
         </ul>
       </div>
-      {isDisplayed ? (
-        <Overlay
-          isDisplayed={isDisplayed}
-          closeDrawer={() => {
-            setIsDisplayed(false);
-          }}
-        />
-      ) : null}
-      <WorksDrawer
-        item={displayedItem}
-        isDisplayed={isDisplayed}
-        setIsDisplayed={() => {
-          setIsDisplayed(false);
-        }}
-      />
     </>
   );
 };
