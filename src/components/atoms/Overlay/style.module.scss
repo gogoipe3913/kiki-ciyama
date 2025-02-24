@@ -1,0 +1,19 @@
+@import "../../../style/variables.scss";
+@import "../../../style/mixin.scss";
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: $global-elevation-3;
+  display: none;
+
+  transition-duration: 0.7s;
+  transition-timing-function: $timing-function-image;
+}
+
+.Overlay--displayed {
+  display: block;
+}

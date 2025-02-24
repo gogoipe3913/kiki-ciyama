@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect, useCallback } from "react";
 import { useInView } from "react-intersection-observer";
-import style from "./style.module.scss";
+import styles from "./style.module.scss";
 import classNames from "classnames";
 
 type FadeInContainerProps = {
@@ -10,32 +10,57 @@ type FadeInContainerProps = {
 export const FadeInContainer: React.FC<FadeInContainerProps> = ({
   children,
 }) => {
-  /**
-   * スクロールイベントのオプション
-   * 「ref」検知する要素
-   * 「inView」要素が見えたかどうか(見えたらtrue)
-   * 「rootMargin」要素の検知の「余白」を設定
-   * 「triggerOnce」検知を一度だけ行うかどうか
-   */
-  const { ref, inView } = useInView({
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [containerElement, setContainerElement] =
+    useState<HTMLDivElement | null>(null);
+  const { ref: inViewRef, inView } = useInView({
     rootMargin: "-24%",
     triggerOnce: true,
   });
 
+  useEffect(() => {
+    if (containerElement) {
+      const img = containerElement.querySelector("img");
+      if (img) {
+        if (img.complete) {
+          setImageLoaded(true);
+        } else {
+          img.onload = () => setImageLoaded(true);
+        }
+      } else {
+        setImageLoaded(true);
+      }
+    }
+  }, [containerElement]);
+
+  const setRefs = useCallback(
+    (node: HTMLDivElement | null) => {
+      setContainerElement(node);
+      inViewRef(node);
+    },
+    [inViewRef]
+  );
+
+  const enhanceChild = (child: React.ReactElement) => {
+    if (child.type === "img") {
+      return React.cloneElement(child, {
+        onLoad: () => setImageLoaded(true),
+      } as React.ImgHTMLAttributes<HTMLImageElement>);
+    }
+    return child;
+  };
+
   return (
-    /**
-     * ★スクロールさせたい要素を囲む
-     * refで指定すると対象の要素になる
-     * inViewのtrueかfalseを受け取り、styled-componentに渡す
-     */
     <div
-      ref={ref}
+      ref={setRefs}
       className={classNames(
-        style.FadeInContainer,
-        inView ? style["FadeInContainer--displayed"] : ""
+        styles.FadeInContainer,
+        inView && imageLoaded ? styles["FadeInContainer--displayed"] : ""
       )}
     >
-      {children}
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child) ? enhanceChild(child) : child
+      )}
     </div>
   );
 };

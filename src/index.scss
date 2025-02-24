@@ -1,4 +1,5 @@
 @import "./style/_reset";
+@import "./style/variables";
 
 // 英語フォント
 @font-face {
@@ -16,4 +17,9 @@
   font-family: "Shippori Mincho";
   src: url(../static/font/ShipporiMincho/ShipporiMincho-Regular.woff2)
     format("woff");
+}
+
+body {
+  font-family: "Classico URW", "Shippori Mincho", "Serif";
+  background-color: $global-color-base;
 }

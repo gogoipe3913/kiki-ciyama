@@ -1,0 +1,138 @@
+@import "../../../style/variables";
+@import "../../../style/mixin.scss";
+
+$timing-function-text: cubic-bezier(0.86, 0, 0.79, 0);
+$timing-function-image: cubic-bezier(0.83, 0, 0.17, 1);
+
+.Works {
+  margin-left: 10%;
+
+  @include respondToSm {
+    margin-left: 36px;
+  }
+
+  .Works__title {
+    height: 320px;
+  }
+
+  .Works__titleBody {
+    position: sticky;
+    top: 25%;
+    font-size: 20px;
+  }
+
+  .Works__items {
+    margin-top: 120px;
+    column-count: 3; /* カラムの数を指定 */
+    column-gap: 32px; /* カラム間のギャップを指定 */
+
+    // デスクトップ以下
+    @include respondToLlg {
+      column-count: 2; /* カラムの数を指定 */
+    }
+
+    @include respondToMd {
+      column-count: 1; /* カラムの数を指定 */
+    }
+
+    @include respondToSm {
+      margin-top: 40px;
+    }
+  }
+
+  .Works__item {
+    max-width: 360px;
+    break-inside: avoid; /* カードがカラム間で分割されないようにする */
+
+    @include respondToSm {
+      max-width: 303px;
+    }
+  }
+
+  .Works__itemImageWrapper {
+    display: block;
+    border-radius: 20px 4px 4px 4px;
+    overflow: hidden;
+
+    transition-duration: 0.8s;
+    transition-timing-function: $timing-function-image;
+
+    @include respondToSm {
+      border-radius: 20px 4px 4px 4px;
+    }
+  }
+
+  .Works__itemImage {
+    transition-duration: 0.7s;
+    transition-timing-function: $timing-function-image;
+  }
+
+  .Works__itemInfo {
+    display: block;
+    padding: 20px 0 68px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .Works__item {
+    @media (hover: hover) {
+      &:hover {
+        .Works__itemImageWrapper {
+          border-radius: 180px 180px 8px 8px;
+          .Works__itemImage {
+            transform: scale(1.2);
+          }
+        }
+
+        .Works__itemInfo > .Works__itemInfoTitle {
+          color: $font-color-hover;
+
+          &::before {
+            width: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  .Works__itemInfoTexts {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Works__itemInfoId {
+    font-size: 12px;
+  }
+
+  .Works__itemInfoCategory {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #b2b2b2;
+    white-space: pre-line;
+    line-height: 1;
+  }
+
+  .Works__itemInfoTitle {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1;
+
+    transition-duration: 0.7s;
+    transition-timing-function: $timing-function-image;
+
+    @include respondToSm {
+      margin-top: 12px;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 1px;
+      background-color: $background-color-hover;
+
+      transition-duration: 1s;
+      transition-timing-function: $timing-function-image;
+    }
+  }
+}

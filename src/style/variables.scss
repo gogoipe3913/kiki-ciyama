@@ -4,11 +4,17 @@ $font-color-blue: #7d2331;
 $font-color-gray: #464646;
 $font-color-white: #fff;
 $font-color-green: #fff;
-
+$font-color-black: #2d2d2d;
+// hover
+$font-color-hover: #c3a079;
+$font-color-hover-pink: #ffadad;
+$font-color-hover-blue: #060b7c;
+$background-color-hover: #c3a079;
 // background-color
 $global-color-white: #464646;
-$global-color-green: #fff;
-
+$global-color-base: #f7f6f3;
+// timing-function
+$timing-function-image: cubic-bezier(0.83, 0, 0.17, 1);
 // z-index
 $global-elevation-background: -999;
 $global-elevation-1: 1000000;

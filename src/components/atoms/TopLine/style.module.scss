@@ -1,0 +1,12 @@
+.cls1 {
+  stroke: #ffffff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 7px;
+  stroke-dasharray: 1500; /* この行を追加 */
+  stroke-dashoffset: 1500; /* この行を追加 */
+}
+
+.cls2 {
+  fill: #c3a079;
+}

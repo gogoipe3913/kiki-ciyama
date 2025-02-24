@@ -2,19 +2,30 @@
 @import "../../style/mixin.scss";
 
 .Templates {
-  color: #464646;
-  height: 100svh;
+  position: relative;
+  padding: 0 60px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Marcellus", "Shippori Mincho";
 
-  p:first-of-type {
-    font-size: 16px;
+  margin: 0 auto;
+  max-width: 1440px;
+
+  @include respondToSm {
+    display: initial;
+    padding: 0 20px;
   }
 
-  p:last-of-type {
-    font-size: 10px;
+  & .Templates__sideColumn {
+    position: sticky;
+    top: 0;
+
+    @include respondToSm {
+      position: fixed;
+      top: 48px;
+      z-index: $global-elevation-3 + 1;
+    }
+  }
+
+  & .Templates__mainColumn {
+    width: 100%;
   }
 }
