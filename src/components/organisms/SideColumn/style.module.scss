@@ -61,6 +61,7 @@
 
     & > li > a {
       cursor: pointer;
+      transition-duration: 0.5s;
     }
 
     @media (hover: hover) {
