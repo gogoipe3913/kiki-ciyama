@@ -44,7 +44,7 @@
   }
 
   .Philosophy__text {
-    max-width: 284px;
+    max-width: 300px;
     font-size: 11px;
     line-height: 2.2em;
     letter-spacing: 0.18em;
@@ -53,13 +53,13 @@
 
   .Philosophy__textEnglish {
     margin-left: 28px;
-    max-width: 284px;
+    max-width: 340px;
     font-size: 12px;
     line-height: 2em;
     letter-spacing: 0.08em;
 
     @include respondToSm {
-      margin-top: 16px;
+      margin-top: 32px;
       margin-left: initial;
       font-size: 10px;
     }
