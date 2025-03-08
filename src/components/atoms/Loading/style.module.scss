@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -23,5 +24,44 @@
 
   .Loading__logo {
     width: 200px;
+  }
+
+  .Loading__text {
+    position: relative;
+    margin-top: 16px;
+    font-size: 15px;
+    color: $font-color-gold;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 1px;
+      background-color: $font-color-gold;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: underline-anim 1.5s infinite;
+    }
+  }
+}
+
+@keyframes underline-anim {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  40% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  60% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
   }
 }

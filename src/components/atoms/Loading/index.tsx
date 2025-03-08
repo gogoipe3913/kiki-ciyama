@@ -28,6 +28,7 @@ const Loading: React.FC<LoadingProps> = ({ isLoadedFirstImage }) => {
       <div className={style.Loading__logo}>
         <LogoMain />
       </div>
+      <p className={style.Loading__text}>Now Loading...</p>
     </div>
   ) : null;
 };
