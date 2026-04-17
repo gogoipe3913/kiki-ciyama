@@ -16,6 +16,7 @@ export type WorksItemDataInterface = {
   category: string[];
   createDate: string;
   images: WorksItemImagesInterface[];
+  url?: string;
 };
 
 type WorkItemsProps = WorksItemDataInterface & {
@@ -28,6 +29,7 @@ const WorkItem: React.FC<WorkItemsProps> = ({
   workCategory,
   category,
   images,
+  url,
 }) => {
   // 改行を含めたい処理
   // const categoryName =
@@ -38,7 +40,8 @@ const WorkItem: React.FC<WorkItemsProps> = ({
     <FadeInContainer>
       {/* <li className={style.Works__item} onClick={setIsDisplayed}> */}
       <li className={style.Works__item}>
-        <button
+        <a
+          href={url}
           className={style.Works__itemImageWrapper}
           // onClick={setDisplayedItem}
         >
@@ -55,7 +58,7 @@ const WorkItem: React.FC<WorkItemsProps> = ({
               />
             ) : null,
           )}
-        </button>
+        </a>
         <div className={style.Works__itemInfo}>
           <p className={style.Works__itemInfoTexts}>
             <span className={style.Works__itemInfoCategory}>{category}</span>
