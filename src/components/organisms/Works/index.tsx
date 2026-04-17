@@ -53,7 +53,7 @@ const WorkItem: React.FC<WorkItemsProps> = ({
                   aspectRatio: `${image.width} / ${image.height}`,
                 }}
               />
-            ) : null
+            ) : null,
           )}
         </button>
         <div className={style.Works__itemInfo}>
@@ -94,9 +94,6 @@ const Works: React.FC = () => {
   return (
     <>
       <div id="works" className={classNames(style.Works)}>
-        <h2 className={style.Works__title}>
-          <span className={style.Works__titleBody}>Works</span>
-        </h2>
         <ul className={style.Works__items}>
           {worksData.map((item, index) => {
             return index % 3 == 0 ? (

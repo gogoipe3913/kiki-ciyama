@@ -23,7 +23,7 @@ $timing-function-image: cubic-bezier(0.83, 0, 0.17, 1);
   }
 
   .Works__items {
-    margin-top: 120px;
+    margin-top: 280px;
     column-count: 3; /* カラムの数を指定 */
     column-gap: 32px; /* カラム間のギャップを指定 */
 
@@ -37,7 +37,7 @@ $timing-function-image: cubic-bezier(0.83, 0, 0.17, 1);
     }
 
     @include respondToSm {
-      margin-top: 40px;
+      margin-top: 160px;
     }
   }
 

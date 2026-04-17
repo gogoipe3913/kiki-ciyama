@@ -1,32 +1,26 @@
-import React, { useState } from "react";
-import Top from "../organisms/Top";
-import Philosophy from "../organisms/Philosophy";
+import React from "react";
 import style from "./style.module.scss";
 import Works from "../organisms/Works";
-import Loading from "../atoms/Loading";
 import SideColumn from "../organisms/SideColumn";
 
 const Templates: React.FC = () => {
   // ファーストビューのステータス
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <>
-      <Loading isLoadedFirstImage={isLoaded} />
+      {/* <Loading isLoadedFirstImage={isLoaded} /> */}
       <div className={style.Templates}>
-        <SideColumn
-          isLoaded={isLoaded}
-          className={style.Templates__sideColumn}
-        />
+        <SideColumn isLoaded={true} className={style.Templates__sideColumn} />
         <div className={style.Templates__mainColumn}>
-          <Top
+          {/* <Top
             isLoaded={isLoaded}
             onLoadData={() => {
               setIsLoaded(true);
             }}
             className={style.Templates__top}
           />
-          <Philosophy />
+          <Philosophy /> */}
           <Works />
         </div>
       </div>
